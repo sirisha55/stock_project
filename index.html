@@ -2,14 +2,19 @@
 	<head>
 		<script src='ajax.js'></script>
 		<script src='angular.min.js'></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 		<title>Stock market</title>
 		<script>
 			window.onload=function() {
-				getstock();
+				getstock('HON');
 			};
 		</script>
 	</head>
 	<body>
-		<input type="button" onclick='getstock()'/>
+		<div id='chart' style='width:400px;height:400px'></div>
+		<input type="button" onclick='gethistory("TIME_SERIES_INTRADAY","TCS","NSE")' value='INTRADAY'/>
+		<input type="button" onclick='gethistory("TIME_SERIES_DAILY","TCS","NSE")' value='daily stocks'/>
+		<input type="button" onclick='gethistory("TIME_SERIES_WEEKLY","TCS","NSE")' value='weekly stocks'/>
+		<input type="button" onclick='gethistory("TIME_SERIES_MONTHLY","TCS","NSE")' value='monthly stocks'/>
 	</body>
 </html>
